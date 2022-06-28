@@ -9,9 +9,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{790C72E9-41AE-4D4E-9BC1-686164DBF483}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotesManager.Domain", "NotesManager.Domain\NotesManager.Domain.csproj", "{995B3049-014D-4922-AE29-B05E26CC5902}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{21CC20D8-B4DC-4D37-925D-AFC6D79B13B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotesManager.Domain", "src\NotesManager.Domain\NotesManager.Domain.csproj", "{27D01E5E-50AD-483C-B786-80904854499A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotesManager.Application", "src\NotesManager.Application\NotesManager.Application.csproj", "{D0C87A07-36B7-4365-8938-927378E4399E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotesManager.Storage.PostgreSql", "src\NotesManager.Storage.PostgreSql\NotesManager.Storage.PostgreSql.csproj", "{31167419-BCDC-469D-97F4-0CF0F4D3B884}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotesManager.Web", "src\NotesManager.Web\NotesManager.Web.csproj", "{53A6A616-7C18-4BAD-99B2-9C7114E88ED1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotesManager.Controllers", "src\NotesManager.Controllers\NotesManager.Controllers.csproj", "{DDE22A8F-7E46-45FE-BC5C-21750E677095}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,12 +30,32 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{995B3049-014D-4922-AE29-B05E26CC5902} = {9FE5A91C-99A7-4672-B924-F5776C738836}
+		{27D01E5E-50AD-483C-B786-80904854499A} = {9FE5A91C-99A7-4672-B924-F5776C738836}
+		{D0C87A07-36B7-4365-8938-927378E4399E} = {9FE5A91C-99A7-4672-B924-F5776C738836}
+		{31167419-BCDC-469D-97F4-0CF0F4D3B884} = {BDBC361E-3FCF-4E93-A778-1587B3AD82D2}
+		{53A6A616-7C18-4BAD-99B2-9C7114E88ED1} = {21CC20D8-B4DC-4D37-925D-AFC6D79B13B6}
+		{DDE22A8F-7E46-45FE-BC5C-21750E677095} = {21CC20D8-B4DC-4D37-925D-AFC6D79B13B6}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{995B3049-014D-4922-AE29-B05E26CC5902}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{995B3049-014D-4922-AE29-B05E26CC5902}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{995B3049-014D-4922-AE29-B05E26CC5902}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{995B3049-014D-4922-AE29-B05E26CC5902}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27D01E5E-50AD-483C-B786-80904854499A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27D01E5E-50AD-483C-B786-80904854499A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27D01E5E-50AD-483C-B786-80904854499A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27D01E5E-50AD-483C-B786-80904854499A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0C87A07-36B7-4365-8938-927378E4399E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0C87A07-36B7-4365-8938-927378E4399E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0C87A07-36B7-4365-8938-927378E4399E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0C87A07-36B7-4365-8938-927378E4399E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31167419-BCDC-469D-97F4-0CF0F4D3B884}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31167419-BCDC-469D-97F4-0CF0F4D3B884}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31167419-BCDC-469D-97F4-0CF0F4D3B884}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31167419-BCDC-469D-97F4-0CF0F4D3B884}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53A6A616-7C18-4BAD-99B2-9C7114E88ED1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53A6A616-7C18-4BAD-99B2-9C7114E88ED1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53A6A616-7C18-4BAD-99B2-9C7114E88ED1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53A6A616-7C18-4BAD-99B2-9C7114E88ED1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDE22A8F-7E46-45FE-BC5C-21750E677095}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDE22A8F-7E46-45FE-BC5C-21750E677095}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDE22A8F-7E46-45FE-BC5C-21750E677095}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDE22A8F-7E46-45FE-BC5C-21750E677095}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
