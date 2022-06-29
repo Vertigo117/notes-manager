@@ -21,6 +21,11 @@ public class NoteEntity : BaseEntity
     public DateTime CreationDate { get; set; }
 
     /// <summary>
+    /// Внешний ключ к сущности <see cref="UserEntity"/>
+    /// </summary>
+    public int UserId { get; set; }
+
+    /// <summary>
     /// Навигационное свойство для связи с сущностью <see cref="UserEntity"/>
     /// </summary>
     public UserEntity User { get; set; } = null!;
