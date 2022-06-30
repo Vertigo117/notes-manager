@@ -9,7 +9,7 @@ namespace NotesManager.Storage.PostgreSql;
 public static class DatabaseMigrator
 {
     /// <summary>
-    /// Применить миграции
+    /// Применяет миграции
     /// </summary>
     /// <param name="serviceProvider"><see cref="IServiceProvider"/> для получения сервисов</param>
     public static async Task ApplyMigrations(this IServiceProvider serviceProvider)

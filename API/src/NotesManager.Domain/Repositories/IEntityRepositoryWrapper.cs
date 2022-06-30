@@ -3,7 +3,7 @@ using NotesManager.Domain.Entities;
 namespace NotesManager.Domain.Repositories;
 
 /// <summary>
-/// Компоновщик репозиториев
+/// Компоновщик репозиториев, реализует паттерн UnitOfWork
 /// </summary>
 public interface IEntityRepositoryWrapper : IUnitOfWork
 {

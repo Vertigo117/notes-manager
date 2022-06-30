@@ -6,7 +6,7 @@ namespace NotesManager.Domain.Repositories;
 public interface IUnitOfWork
 {
     /// <summary>
-    /// Сохранить изменения
+    /// Асинхронно сохраняет изменения в контексте данных
     /// </summary>
     /// <param name="token">Токен отмены операции</param>
     /// <returns>Задача, которая содержит результат выполнения асинхронной операции</returns>
