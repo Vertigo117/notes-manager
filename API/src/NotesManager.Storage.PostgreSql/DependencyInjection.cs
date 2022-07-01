@@ -1,8 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using NotesManager.Domain.Entities;
-using NotesManager.Domain.Repositories;
+using NotesManager.Domain.Abstractions.Repositories.Interfaces;
 using NotesManager.Storage.PostgreSql.Repositories;
 
 namespace NotesManager.Storage.PostgreSql;
@@ -25,8 +24,8 @@ public static class DependencyInjection
             npgBuilder =>
                 npgBuilder.MigrationsHistoryTable("__EFMigrationsHistory", NotesManagerDbContext.SchemaName)));
 
-        services.AddScoped<IEntityRepository<NoteEntity>, NoteEntityRepository>();
-        services.AddScoped<IEntityRepository<UserEntity>, UserEntityRepository>();
+        services.AddScoped<INoteEntityRepository, NoteEntityRepository>();
+        services.AddScoped<IUserEntityRepository, UserEntityRepository>();
         services.AddScoped<IEntityRepositoryWrapper, EntityRepositoryWrapper>();
     }
 }

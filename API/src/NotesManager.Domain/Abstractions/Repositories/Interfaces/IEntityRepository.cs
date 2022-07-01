@@ -1,7 +1,7 @@
 using System.Linq.Expressions;
 using NotesManager.Domain.Entities;
 
-namespace NotesManager.Domain.Repositories;
+namespace NotesManager.Domain.Abstractions.Repositories.Interfaces;
 
 /// <summary>
 /// Репозиторий для доступа к данным
@@ -9,6 +9,12 @@ namespace NotesManager.Domain.Repositories;
 /// <typeparam name="TEntity">Тип сущности</typeparam>
 public interface IEntityRepository<TEntity> where TEntity : BaseEntity
 {
+    /// <summary>
+    /// Асинхронно создаёт новый объект
+    /// </summary>
+    /// <param name="entity">Объект для создания</param>
+    void Create(TEntity entity);
+    
     /// <summary>
     /// Асинхронно получает объекты, соответствующие условию
     /// </summary>
@@ -23,12 +29,6 @@ public interface IEntityRepository<TEntity> where TEntity : BaseEntity
     /// <returns>Задача, которая содержит объект с указанным уникальным идентификатором, либо <c>null</c>,
     /// если объект не найден</returns>
     Task<TEntity?> GetByIdOrDefaultAsync(int id);
-
-    /// <summary>
-    /// Асинхронно создаёт новый объект
-    /// </summary>
-    /// <param name="entity">Объект для создания</param>
-    void Create(TEntity entity);
 
     /// <summary>
     /// Обновляет информацию об объекте
