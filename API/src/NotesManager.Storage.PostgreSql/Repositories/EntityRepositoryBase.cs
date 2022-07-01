@@ -1,7 +1,7 @@
 using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
+using NotesManager.Domain.Abstractions.Repositories.Interfaces;
 using NotesManager.Domain.Entities;
-using NotesManager.Domain.Repositories;
 
 namespace NotesManager.Storage.PostgreSql.Repositories;
 
@@ -11,35 +11,38 @@ namespace NotesManager.Storage.PostgreSql.Repositories;
 /// <typeparam name="TEntity">Тип сущности</typeparam>
 internal abstract class EntityRepositoryBase<TEntity> : IEntityRepository<TEntity> where TEntity : BaseEntity
 {
-    protected readonly NotesManagerDbContext Context;
+    /// <summary>
+    /// <see cref="DbSet{TEntity}"/> для формирования запросов к бд
+    /// </summary>
+    protected readonly DbSet<TEntity> DbSet;
 
     protected EntityRepositoryBase(NotesManagerDbContext dbContext)
     {
-        Context = dbContext;
+        DbSet = dbContext.Set<TEntity>();
+    }
+    
+    public void Create(TEntity entity)
+    {
+        DbSet.Add(entity);
     }
 
     public async Task<IEnumerable<TEntity>> GetByExpressionAsync(Expression<Func<TEntity, bool>> expression)
     {
-        return await Context.Set<TEntity>().Where(expression).ToListAsync();
+        return await DbSet.Where(expression).ToListAsync();
     }
 
     public async Task<TEntity?> GetByIdOrDefaultAsync(int id)
     {
-        return await Context.Set<TEntity>().FindAsync(id);
-    }
-
-    public void Create(TEntity entity)
-    {
-        Context.Add(entity);
+        return await DbSet.FindAsync(id);
     }
 
     public void Update(TEntity entity)
     {
-        Context.Update(entity);
+        DbSet.Update(entity);
     }
 
     public void Delete(TEntity entity)
     {
-        Context.Remove(entity);
+        DbSet.Remove(entity);
     }
 }

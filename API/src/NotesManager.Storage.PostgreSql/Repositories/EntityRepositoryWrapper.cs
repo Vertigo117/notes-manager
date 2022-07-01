@@ -1,5 +1,4 @@
-using NotesManager.Domain.Entities;
-using NotesManager.Domain.Repositories;
+using NotesManager.Domain.Abstractions.Repositories.Interfaces;
 
 namespace NotesManager.Storage.PostgreSql.Repositories;
 
@@ -8,21 +7,19 @@ internal class EntityRepositoryWrapper : IEntityRepositoryWrapper
 {
     private readonly NotesManagerDbContext _dbContext;
 
-    private readonly Lazy<IEntityRepository<UserEntity>> _lazyUserRepository;
-    private readonly Lazy<IEntityRepository<NoteEntity>> _lazyNoteRepository;
+    public IUserEntityRepository UserRepository { get; }
 
-    public IEntityRepository<UserEntity> UserRepository => _lazyUserRepository.Value;
-    public IEntityRepository<NoteEntity> NoteRepository => _lazyNoteRepository.Value;
+    public INoteEntityRepository NoteRepository { get; }
 
     public EntityRepositoryWrapper(
         NotesManagerDbContext dbContext,
-        IEntityRepository<UserEntity> userRepository,
-        IEntityRepository<NoteEntity> noteRepository
+        IUserEntityRepository userRepository,
+        INoteEntityRepository noteRepository
     )
     {
         _dbContext = dbContext;
-        _lazyUserRepository = new Lazy<IEntityRepository<UserEntity>>(() => userRepository);
-        _lazyNoteRepository = new Lazy<IEntityRepository<NoteEntity>>(() => noteRepository);
+        UserRepository = userRepository;
+        NoteRepository = noteRepository;
     }
 
     public async Task SaveChangesAsync(CancellationToken token = default)
