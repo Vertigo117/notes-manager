@@ -32,6 +32,8 @@ builder.Services.AddSwaggerGen(options =>
 builder.Services.AddPostgreSqlStorage(builder.Configuration);
 builder.Services.AddApplicationServices();
 
+builder.Services.AddRouting(options => options.LowercaseUrls = true);
+
 var app = builder.Build();
 
 await app.Services.ApplyMigrations();

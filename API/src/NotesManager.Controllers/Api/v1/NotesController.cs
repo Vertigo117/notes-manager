@@ -10,7 +10,7 @@ namespace NotesManager.Controllers.Api.v1;
 /// </summary>
 [ApiVersion("1")]
 [ApiController]
-[Route("api/v{version:apiVersion}/[controller]/[action]")]
+[Route("api/v{version:apiVersion}/[controller]")]
 public class NotesController : ControllerBase
 {
     private readonly INotesService _notesService;
@@ -31,7 +31,7 @@ public class NotesController : ControllerBase
     /// <param name="skip">Количество заметок, которые необходимо пропустить</param>
     /// <param name="take">Количество заметок, которое необходимо отобразить на странице</param>
     /// <returns>Постраничный список заметок</returns>
-    [HttpGet]
+    [HttpGet("get-paged", Name = nameof(GetPagedNotes))]
     [ProducesResponseType(typeof(IEnumerable<PagedNoteDataDto>), StatusCodes.Status200OK)]
     public async Task<ActionResult> GetPagedNotes([FromQuery] int userId, [FromQuery] int skip, [FromQuery] int take)
     {

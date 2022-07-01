@@ -27,7 +27,6 @@ public static class ApplicationBuilderExtensions
             
             options.RoutePrefix = "swagger";
             options.ConfigObject.DisplayRequestDuration = true;
-            options.ConfigObject.AdditionalItems.Add("syntaxHighlight", false);
         });
     }
 }
