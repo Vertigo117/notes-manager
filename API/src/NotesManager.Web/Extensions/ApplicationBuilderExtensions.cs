@@ -16,6 +16,8 @@ public static class ApplicationBuilderExtensions
         app.UseSwagger();
         app.UseSwaggerUI(options =>
         {
+            using var scope = app.ApplicationServices.CreateScope();
+            
             var provider = app.ApplicationServices.GetRequiredService<IApiVersionDescriptionProvider>();
             
             foreach (var description in provider.ApiVersionDescriptions)
