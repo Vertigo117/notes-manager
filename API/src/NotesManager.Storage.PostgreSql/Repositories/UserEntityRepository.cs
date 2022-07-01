@@ -1,3 +1,4 @@
+using NotesManager.Domain.Abstractions.Repositories.Interfaces;
 using NotesManager.Domain.Entities;
 
 namespace NotesManager.Storage.PostgreSql.Repositories;
@@ -5,7 +6,7 @@ namespace NotesManager.Storage.PostgreSql.Repositories;
 /// <summary>
 /// Репозиторий пользователей
 /// </summary>
-internal class UserEntityRepository : EntityRepositoryBase<UserEntity>
+internal sealed class UserEntityRepository : EntityRepositoryBase<UserEntity>, IUserEntityRepository
 {
     public UserEntityRepository(NotesManagerDbContext dbContext) : base(dbContext)
     {
