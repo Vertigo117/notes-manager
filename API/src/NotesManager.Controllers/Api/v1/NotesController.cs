@@ -25,15 +25,15 @@ public class NotesController : ControllerBase
     }
 
     /// <summary>
-    /// Получить постраничный список заметок
+    /// Получить постраничный список заметок пользователя
     /// </summary>
     /// <param name="userId">Уникальный идентификатор пользователя</param>
-    /// <param name="skip">Сколько пропустить</param>
-    /// <param name="take">Сколько вывести</param>
+    /// <param name="skip">Количество заметок, которые необходимо пропустить</param>
+    /// <param name="take">Количество заметок, которое необходимо отобразить на странице</param>
     /// <returns>Постраничный список заметок</returns>
-    [HttpGet]
-    [ProducesResponseType((typeof(IEnumerable<NoteDto>)), StatusCodes.Status200OK)]
-    public async Task<ActionResult> Get([FromQuery] int userId, [FromQuery] int skip, [FromQuery] int take)
+    [HttpGet("get-paged", Name = nameof(GetPagedNotes))]
+    [ProducesResponseType(typeof(IEnumerable<PagedNoteDataDto>), StatusCodes.Status200OK)]
+    public async Task<ActionResult> GetPagedNotes([FromQuery] int userId, [FromQuery] int skip, [FromQuery] int take)
     {
         var response = await _notesService.GetPagedNotesByUserIdAsync(userId, skip, take);
         return Ok(response);

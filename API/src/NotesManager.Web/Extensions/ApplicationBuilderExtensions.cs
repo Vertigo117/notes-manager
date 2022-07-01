@@ -5,7 +5,7 @@ namespace NotesManager.Web.Extensions;
 /// <summary>
 /// Расширение для интерфейса <see cref="IApplicationBuilder"/>
 /// </summary>
-public static class ApplicationBuilderExtension
+public static class ApplicationBuilderExtensions
 {
     /// <summary>
     /// Регистрирует настроенный Swagger Middlware
@@ -27,7 +27,6 @@ public static class ApplicationBuilderExtension
             
             options.RoutePrefix = "swagger";
             options.ConfigObject.DisplayRequestDuration = true;
-            options.ConfigObject.AdditionalItems.Add("syntaxHighlight", false);
         });
     }
 }
