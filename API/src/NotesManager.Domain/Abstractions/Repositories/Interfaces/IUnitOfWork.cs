@@ -1,4 +1,4 @@
-namespace NotesManager.Domain.Repositories;
+namespace NotesManager.Domain.Abstractions.Repositories.Interfaces;
 
 /// <summary>
 /// Интерфейс для реализации паттерна UnitOfWork
