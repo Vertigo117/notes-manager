@@ -21,7 +21,17 @@ public class UserEntity : BaseEntity
     public string PasswordHash { get; set; } = null!;
 
     /// <summary>
+    /// Уникальный идентификатор роли пользователя в системе
+    /// </summary>
+    public int RoleId { get; set; }
+
+    /// <summary>
     /// Навигационное свойство для связи с сущностью <see cref="NoteEntity"/>
     /// </summary>
     public List<NoteEntity> Notes { get; set; } = new();
+
+    /// <summary>
+    /// Навигационное свойство для связи с сущностью <see cref="RoleEntity"/>
+    /// </summary>
+    public RoleEntity Role { get; set; } = null!;
 }

@@ -21,7 +21,7 @@ public class NoteEntity : BaseEntity
     public DateTime CreationDate { get; set; }
 
     /// <summary>
-    /// Внешний ключ к сущности <see cref="UserEntity"/>
+    /// Уникальный идентификатор пользователя
     /// </summary>
     public int UserId { get; set; }
 

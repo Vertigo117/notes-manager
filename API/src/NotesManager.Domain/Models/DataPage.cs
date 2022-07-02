@@ -9,12 +9,12 @@ namespace NotesManager.Domain.Models;
 public class DataPage<TEntity> where TEntity : BaseEntity
 {
     /// <summary>
-    /// Общее количество объектов сущности в бд
+    /// Общее количество объектов в бд
     /// </summary>
     public int TotalCount { get; init; }
 
     /// <summary>
-    /// Данные на текущей странице
+    /// Объекты на странице
     /// </summary>
     public List<TEntity> Data { get; init; } = new();
 }

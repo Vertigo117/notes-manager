@@ -12,6 +12,11 @@ internal class NotesManagerDbContext : DbContext
     /// Пользователи системы
     /// </summary>
     public DbSet<UserEntity> Users => Set<UserEntity>();
+    
+    /// <summary>
+    /// Роли пользователей в системе
+    /// </summary>
+    public DbSet<RoleEntity> Roles => Set<RoleEntity>();
 
     /// <summary>
     /// Заметки

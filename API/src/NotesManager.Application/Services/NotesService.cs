@@ -36,12 +36,12 @@ internal class NotesService : INotesService
         return _mapper.Map<NoteDto>(noteEntity);
     }
 
-    public async Task<PagedNoteDataDto> GetPagedNotesByUserIdAsync(int userId, int skip, int take)
+    public async Task<DataPageDto<NoteDto>> GetPagedNotesByUserIdAsync(int userId, int skip, int take)
     {
         var page = await _repositoryWrapper.NoteRepository.GetPagedEntitiesByExpressionAsync(
             entity => entity.UserId == userId, skip, take);
 
-        return _mapper.Map<PagedNoteDataDto>(page);
+        return _mapper.Map<DataPageDto<NoteDto>>(page);
     }
 
     public async Task UpdateNoteAsync(int id, NoteUpsertDto note)

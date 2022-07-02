@@ -32,7 +32,7 @@ public class NotesController : ControllerBase
     /// <param name="take">Количество заметок, которое необходимо отобразить на странице</param>
     /// <returns>Постраничный список заметок</returns>
     [HttpGet("get-paged", Name = nameof(GetPagedNotes))]
-    [ProducesResponseType(typeof(IEnumerable<PagedNoteDataDto>), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(DataPageDto<NoteDto>), StatusCodes.Status200OK)]
     public async Task<ActionResult> GetPagedNotes([FromQuery] int userId, [FromQuery] int skip, [FromQuery] int take)
     {
         var response = await _notesService.GetPagedNotesByUserIdAsync(userId, skip, take);

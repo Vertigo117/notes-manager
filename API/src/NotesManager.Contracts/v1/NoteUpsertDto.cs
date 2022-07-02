@@ -1,22 +1,22 @@
 namespace NotesManager.Contracts.v1;
 
 /// <summary>
-/// Объект для передачи данных, необходимых для создания и обновления заметки
+/// Данные для создания и обновления заметки
 /// </summary>
 public class NoteUpsertDto
 {
     /// <summary>
     /// Название
     /// </summary>
-    public string Name { get; set; } = null!;
+    public string Name { get; init; } = null!;
 
     /// <summary>
     /// Текст
     /// </summary>
-    public string Text { get; set; } = null!;
+    public string Text { get; init; } = null!;
 
     /// <summary>
     /// Уникальный идентификатор пользователя
     /// </summary>
-    public int UserId { get; set; }
+    public int UserId { get; init; }
 }

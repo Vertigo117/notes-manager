@@ -1,17 +1,17 @@
 namespace NotesManager.Contracts.v1;
 
 /// <summary>
-/// Объект для постраничной передачи данных о заметках
+/// Страница данных
 /// </summary>
-public class PagedNoteDataDto
+public class DataPageDto<TDto> where TDto : class
 {
     /// <summary>
     /// Общее количество заметок
     /// </summary>
-    public int TotalCount { get; init; }
+    public int TotalCount { get; set; }
 
     /// <summary>
     /// Заметки на странице
     /// </summary>
-    public List<NoteDto> Data { get; init; } = new();
+    public List<TDto> Data { get; set; } = new();
 }

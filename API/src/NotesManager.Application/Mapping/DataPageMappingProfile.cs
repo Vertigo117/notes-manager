@@ -9,6 +9,6 @@ public class DataPageMappingProfile : Profile
 {
     public DataPageMappingProfile()
     {
-        CreateMap<DataPage<NoteEntity>, PagedNoteDataDto>();
+        CreateMap<DataPage<NoteEntity>, DataPageDto<NoteEntity>>();
     }
 }

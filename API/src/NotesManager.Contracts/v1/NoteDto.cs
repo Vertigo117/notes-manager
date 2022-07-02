@@ -8,20 +8,20 @@ public class NoteDto
     /// <summary>
     /// Уникальный идентификатор
     /// </summary>
-    public int Id { get; set; }
+    public int Id { get; init; }
 
     /// <summary>
     /// Название
     /// </summary>
-    public string? Name { get; set; }
+    public string? Name { get; init; }
 
     /// <summary>
     /// Текст
     /// </summary>
-    public string? Text { get; set; }
+    public string? Text { get; init; }
 
     /// <summary>
     /// Дата создания
     /// </summary>
-    public DateTime CreationDate { get; set; }
+    public DateTime CreationDate { get; init; }
 }

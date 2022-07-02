@@ -28,7 +28,7 @@ public interface INotesService
     /// <param name="skip">Количество заметок, которые необходимо пропустить</param>
     /// <param name="take">Количество заметок, которые необходимо отобразить на странице</param>
     /// <returns></returns>
-    Task<PagedNoteDataDto> GetPagedNotesByUserIdAsync(int userId, int skip, int take);
+    Task<DataPageDto<NoteDto>> GetPagedNotesByUserIdAsync(int userId, int skip, int take);
 
     /// <summary>
     /// Асинхронно обновляет заметку с указанным уникальным идентификатором
